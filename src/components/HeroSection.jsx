@@ -19,7 +19,7 @@ export default function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center overflow-hidden bg-brand-dark text-brand-white"
+      className="relative min-h-screen flex items-center overflow-hidden text-brand-white"
     >
       {/* Dynamic Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -28,18 +28,18 @@ export default function HeroSection() {
         <div className="absolute top-[40%] -right-[20%] w-[60vw] h-[60vw] rounded-full bg-brand-gold/15 blur-[120px] mix-blend-screen opacity-60" />
         
         {/* Huge Background Typography Marquee to fill empty space */}
-        <div className="absolute top-[25%] left-0 w-full whitespace-nowrap opacity-[0.03] flex flex-col gap-4 select-none mix-blend-overlay">
+        <div className="absolute top-[25%] left-0 w-full whitespace-nowrap flex flex-col gap-4 select-none z-0">
           <motion.div 
             animate={{ x: [0, -1000] }} 
             transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-            className="text-[15rem] md:text-[25rem] font-extrabold leading-none tracking-tighter"
+            className="text-[15rem] md:text-[25rem] font-black leading-none tracking-tighter text-brand-white/[0.03]"
           >
             JAINACKS JAINACKS JAINACKS JAINACKS
           </motion.div>
           <motion.div 
             animate={{ x: [-1000, 0] }} 
             transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
-            className="text-[15rem] md:text-[25rem] font-extrabold leading-none tracking-tighter"
+            className="text-[15rem] md:text-[25rem] font-black leading-none tracking-tighter text-brand-white/[0.03]"
           >
             PREMIUM PREMIUM PREMIUM PREMIUM
           </motion.div>

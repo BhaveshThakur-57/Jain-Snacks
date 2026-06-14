@@ -19,13 +19,13 @@ export default function WhySection() {
   });
 
   return (
-    <section ref={containerRef} className="relative bg-brand-bg py-24 md:py-32">
+    <section ref={containerRef} className="relative py-24 md:py-32 border-b border-brand-white/5">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           {/* Sticky Image Context */}
-          <div className="hidden lg:block h-[600px] relative rounded-3xl overflow-hidden shadow-2xl">
-            <div className="absolute inset-0 bg-brand-dark/20 z-10" />
+          <div className="hidden lg:block h-[600px] relative rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-brand-white/10">
+            <div className="absolute inset-0 bg-black/20 z-10" />
             <Image 
               src="/images/lifestyle.png"
               alt="Premium lifestyle"
@@ -33,11 +33,11 @@ export default function WhySection() {
               className="object-cover"
             />
             {/* Overlapping Glass Card */}
-            <div className="absolute bottom-10 right-10 z-20 glass p-8 rounded-2xl max-w-xs shadow-2xl">
-              <span className="text-brand-gold text-xs font-bold tracking-widest uppercase mb-2 block">
+            <div className="absolute bottom-10 right-10 z-20 glass-dark p-8 rounded-2xl max-w-xs shadow-2xl border border-brand-white/10">
+              <span className="text-brand-gold text-xs font-black tracking-widest uppercase mb-3 block">
                 The Philosophy
               </span>
-              <p className="text-brand-text text-lg font-bold leading-tight">
+              <p className="text-brand-white text-lg font-bold leading-tight">
                 Rooted in traditional Jain values. Engineered for modern performance.
               </p>
             </div>
@@ -49,7 +49,7 @@ export default function WhySection() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-xs font-bold text-brand-secondary uppercase tracking-[0.3em] block mb-10"
+              className="text-xs font-bold text-brand-gold uppercase tracking-[0.3em] block mb-10"
             >
               Why Jainacks Exists
             </motion.span>
@@ -63,13 +63,13 @@ export default function WhySection() {
               const opacity = useTransform(scrollYProgress, [start, end], [0.15, 1]);
               
               return (
-                <motion.h2
+                <motion.span
                   key={i}
                   style={{ opacity }}
-                  className="text-4xl md:text-5xl lg:text-[4rem] font-extrabold tracking-tighter leading-[1.1] text-brand-text"
+                  className="block text-4xl md:text-5xl lg:text-7xl font-black tracking-tighter text-brand-white leading-[1.1]"
                 >
                   {text}
-                </motion.h2>
+                </motion.span>
               );
             })}
           </div>

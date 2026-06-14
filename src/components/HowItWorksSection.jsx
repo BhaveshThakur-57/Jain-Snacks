@@ -42,29 +42,26 @@ const steps = [
   {
     number: '02',
     title: 'DRAIN',
-    description: 'Drain the excess water. Let it cool for a moment.',
+    description: 'Squeeze out excess water. It absorbs flavors like a sponge.',
     icon: (
       <svg viewBox="0 0 80 80" className="w-16 h-16 md:w-20 md:h-20" fill="none">
-        <path d="M30 25h20v20c0 8-4 14-10 14s-10-6-10-14V25z" stroke="currentColor" strokeWidth="2" fill="none"/>
-        <path d="M30 50h20" stroke="currentColor" strokeWidth="1" opacity="0.3"/>
-        {/* Drips */}
+        <path d="M20 30L30 65h20l10-35" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
+        <path d="M15 30h50" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+        {/* Drops */}
         <motion.circle
-          cx="36" cy="62" r="1.5"
-          fill="currentColor"
-          animate={{ y: [0, 8, 0], opacity: [1, 0, 1] }}
+          cx="40" cy="45" r="2" fill="currentColor"
+          animate={{ y: [0, 15], opacity: [1, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
         />
         <motion.circle
-          cx="40" cy="64" r="1.5"
-          fill="currentColor"
-          animate={{ y: [0, 8, 0], opacity: [1, 0, 1] }}
-          transition={{ duration: 1.5, repeat: Infinity, delay: 0.4 }}
+          cx="32" cy="40" r="1.5" fill="currentColor"
+          animate={{ y: [0, 15], opacity: [1, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 }}
         />
         <motion.circle
-          cx="44" cy="62" r="1.5"
-          fill="currentColor"
-          animate={{ y: [0, 8, 0], opacity: [1, 0, 1] }}
-          transition={{ duration: 1.5, repeat: Infinity, delay: 0.8 }}
+          cx="48" cy="42" r="1.5" fill="currentColor"
+          animate={{ y: [0, 15], opacity: [1, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, delay: 1 }}
         />
       </svg>
     ),
@@ -72,11 +69,11 @@ const steps = [
   {
     number: '03',
     title: 'MIX',
-    description: 'Mix it into your favourite dish. Burger, paratha, curry — anything!',
+    description: 'Toss into any dish – curries, salads, wraps, or rice.',
     icon: (
       <svg viewBox="0 0 80 80" className="w-16 h-16 md:w-20 md:h-20" fill="none">
-        <circle cx="40" cy="55" r="16" stroke="currentColor" strokeWidth="2" fill="none"/>
-        <path d="M32 55c4-4 12-4 16 0" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+        {/* Bowl */}
+        <path d="M20 45c0 15 10 20 20 20s20-5 20-20" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
         {/* Spoon */}
         <motion.g
           animate={{ rotate: [0, 15, -15, 0] }}
@@ -93,14 +90,13 @@ const steps = [
 
 export default function HowItWorksSection() {
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-brand-bg to-brand-light/30" />
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-muted to-transparent" />
+    <section className="relative py-24 md:py-32 overflow-hidden border-b border-brand-white/5">
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-white/10 to-transparent" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Luxury Header */}
         <div className="flex flex-col items-center text-center mb-20 relative">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[12rem] md:text-[18rem] font-black text-brand-muted/10 whitespace-nowrap pointer-events-none z-0">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[12rem] md:text-[18rem] font-black text-brand-white/5 whitespace-nowrap pointer-events-none z-0">
             SIMPLICITY
           </div>
           <div className="relative z-10">
@@ -117,7 +113,7 @@ export default function HowItWorksSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-5xl md:text-7xl font-black tracking-tighter mb-6 leading-tight"
+              className="text-5xl md:text-7xl font-black tracking-tighter mb-6 leading-tight text-brand-white"
             >
               Ready in <br className="md:hidden" /><span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-secondary to-brand-gold italic font-serif tracking-normal">Minutes.</span>
             </motion.h2>
@@ -126,7 +122,7 @@ export default function HowItWorksSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-brand-text/60 text-lg max-w-md mx-auto font-medium"
+              className="text-brand-white/60 text-lg max-w-md mx-auto font-medium"
             >
               No complicated recipes. No boring protein meals. Just three effortless steps to pure nutrition.
             </motion.p>
@@ -138,40 +134,23 @@ export default function HowItWorksSection() {
           {steps.map((step, i) => (
             <motion.div
               key={step.number}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.15, duration: 0.7 }}
+              transition={{ delay: i * 0.15 }}
+              className="glass-dark rounded-[2.5rem] p-10 md:p-12 border border-brand-white/10 hover:border-brand-gold/30 transition-colors duration-500 group relative overflow-hidden"
             >
-              <motion.div
-                whileHover={{ y: -6, boxShadow: '0 20px 50px rgba(30, 42, 31, 0.06)' }}
-                className="relative bg-brand-white rounded-3xl p-8 md:p-10 h-full text-center border border-brand-muted/30 transition-shadow duration-500"
-              >
-                {/* Step number */}
-                <div className="absolute top-6 left-6">
-                  <span className="text-xs font-bold text-brand-muted">{step.number}</span>
-                </div>
-
-                {/* Connector line */}
-                {i < 2 && (
-                  <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-[1px] bg-brand-muted" />
-                )}
-
-                {/* Icon */}
-                <div className="flex justify-center mb-6 text-brand-text/70">
-                  {step.icon}
-                </div>
-
-                {/* Title */}
-                <h3 className="text-2xl md:text-3xl font-extrabold text-brand-text mb-3 tracking-tight">
-                  {step.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-sm text-brand-text/50 leading-relaxed">
-                  {step.description}
-                </p>
-              </motion.div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-brand-white/5 rounded-full blur-3xl group-hover:bg-brand-gold/10 transition-colors duration-500" />
+              <div className="text-brand-gold mb-8 transform group-hover:scale-110 transition-transform duration-500 flex justify-center">
+                {step.icon}
+              </div>
+              <div className="flex flex-col items-center text-center gap-2 mb-4">
+                <span className="text-sm font-black text-brand-white/20 tracking-widest">{step.number}</span>
+                <h3 className="text-2xl font-black text-brand-white tracking-tight">{step.title}</h3>
+              </div>
+              <p className="text-sm font-medium text-brand-white/60 leading-relaxed text-center">
+                {step.description}
+              </p>
             </motion.div>
           ))}
         </div>
@@ -184,7 +163,7 @@ export default function HowItWorksSection() {
           transition={{ delay: 0.5 }}
           className="text-center mt-16"
         >
-          <p className="text-2xl md:text-3xl font-light text-brand-text/30 tracking-wide">
+          <p className="text-2xl md:text-3xl font-light text-brand-white/30 tracking-wide">
             That&apos;s it.
           </p>
           <p className="text-sm text-brand-protein font-bold mt-2">

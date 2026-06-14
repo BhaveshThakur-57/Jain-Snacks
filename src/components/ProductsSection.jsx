@@ -55,7 +55,7 @@ export default function ProductsSection() {
   const [hoveredIdx, setHoveredIdx] = useState(null);
 
   return (
-    <section className="relative py-32 overflow-hidden bg-brand-dark text-brand-white">
+    <section className="relative py-32 overflow-hidden border-b border-brand-white/5">
       {/* Dense Background Textures */}
       <div className="absolute inset-0 opacity-[0.03] bg-[url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')] pointer-events-none" />
       <div className="absolute top-0 right-0 w-full h-[500px] bg-gradient-to-b from-brand-secondary/5 to-transparent pointer-events-none" />

@@ -8,7 +8,7 @@ const benefits = [
     description: 'The highest protein content in any snack category.',
     icon: '💪',
     span: 'col-span-1 md:col-span-2 md:row-span-1',
-    bg: 'bg-gradient-to-br from-brand-protein/10 to-brand-protein/5',
+    bg: 'glass-dark hover:bg-brand-protein/10',
     accent: 'text-brand-protein',
     large: true,
   },
@@ -18,7 +18,7 @@ const benefits = [
     description: 'Made entirely from plants. No animal products.',
     icon: '🌱',
     span: 'col-span-1',
-    bg: 'bg-gradient-to-br from-brand-secondary/10 to-brand-secondary/5',
+    bg: 'glass-dark hover:bg-brand-secondary/10',
     accent: 'text-brand-secondary',
     large: false,
   },
@@ -28,8 +28,8 @@ const benefits = [
     description: 'Rooted in Jain principles of purity.',
     icon: '🚫',
     span: 'col-span-1',
-    bg: 'bg-brand-white',
-    accent: 'text-brand-text',
+    bg: 'glass-dark hover:bg-brand-white/5',
+    accent: 'text-brand-white',
     large: false,
   },
   {
@@ -38,8 +38,8 @@ const benefits = [
     description: 'Only what you need. Nothing you don\'t.',
     icon: '✨',
     span: 'col-span-1',
-    bg: 'bg-brand-white',
-    accent: 'text-brand-text',
+    bg: 'glass-dark hover:bg-brand-gold/10',
+    accent: 'text-brand-gold',
     large: false,
   },
   {
@@ -48,8 +48,8 @@ const benefits = [
     description: 'Minimal processing. Maximum nutrition.',
     icon: '🍃',
     span: 'col-span-1 md:col-span-2',
-    bg: 'bg-gradient-to-br from-brand-gold/10 to-brand-gold/5',
-    accent: 'text-brand-gold',
+    bg: 'glass-dark hover:bg-brand-secondary/10',
+    accent: 'text-brand-secondary',
     large: true,
   },
   {
@@ -58,8 +58,8 @@ const benefits = [
     description: 'Preserves nutrients while keeping the crunch.',
     icon: '🔬',
     span: 'col-span-1',
-    bg: 'bg-brand-white',
-    accent: 'text-brand-secondary',
+    bg: 'glass-dark hover:bg-brand-protein/10',
+    accent: 'text-brand-protein',
     large: false,
   },
   {
@@ -68,8 +68,8 @@ const benefits = [
     description: 'Snacking that works for busy, health-conscious people.',
     icon: '⚡',
     span: 'col-span-1',
-    bg: 'bg-brand-white',
-    accent: 'text-brand-text',
+    bg: 'glass-dark hover:bg-brand-white/5',
+    accent: 'text-brand-white',
     large: false,
   },
   {
@@ -78,42 +78,46 @@ const benefits = [
     description: 'Make every meal more nutritious effortlessly.',
     icon: '☀️',
     span: 'col-span-1',
-    bg: 'bg-gradient-to-br from-brand-secondary/10 to-brand-gold/5',
-    accent: 'text-brand-secondary',
+    bg: 'glass-dark hover:bg-brand-gold/10',
+    accent: 'text-brand-gold',
     large: false,
   },
 ];
 
 export default function BenefitsGrid() {
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-brand-light/30" />
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-muted to-transparent" />
+    <section className="relative py-24 md:py-32 overflow-hidden border-b border-brand-white/5">
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-white/10 to-transparent" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-xs font-semibold text-brand-secondary uppercase tracking-[0.2em] block mb-4"
-          >
-            Benefits
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight"
-          >
-            Why <span className="text-gradient-green">Jainacks?</span>
-          </motion.h2>
+        <div className="text-center mb-16 relative">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[10rem] md:text-[15rem] font-black text-brand-white/5 whitespace-nowrap pointer-events-none z-0">
+            BENEFITS
+          </div>
+          <div className="relative z-10">
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-xs font-black text-brand-gold uppercase tracking-[0.3em] block mb-4"
+            >
+              The Advantage
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-5xl md:text-7xl font-black tracking-tighter text-brand-white"
+            >
+              Why <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-secondary to-brand-gold italic font-serif">Jainacks?</span>
+            </motion.h2>
+          </div>
         </div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {benefits.map((benefit, i) => (
             <motion.div
               key={benefit.title}
@@ -124,23 +128,26 @@ export default function BenefitsGrid() {
               className={benefit.span}
             >
               <motion.div
-                whileHover={{ y: -4, boxShadow: '0 20px 50px rgba(30, 42, 31, 0.06)' }}
-                className={`bento-card rounded-3xl p-6 md:p-8 h-full border border-brand-muted/20 ${benefit.bg}`}
+                whileHover={{ y: -6 }}
+                className={`rounded-[2rem] p-8 md:p-10 h-full border border-brand-white/10 transition-colors duration-500 overflow-hidden relative group ${benefit.bg}`}
               >
+                {/* Glow Effect */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-brand-white/5 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700" />
+                
                 {/* Icon */}
-                <span className="text-3xl md:text-4xl mb-4 block">{benefit.icon}</span>
+                <span className="text-4xl md:text-5xl mb-6 block transform group-hover:scale-110 transition-transform duration-500 origin-left">{benefit.icon}</span>
 
                 {/* Content */}
                 <div className={benefit.large ? 'md:flex md:items-end md:justify-between' : ''}>
                   <div>
-                    <h3 className={`text-xl md:text-2xl font-extrabold tracking-tight mb-1 ${benefit.accent}`}>
+                    <h3 className={`text-2xl md:text-3xl font-black tracking-tight mb-2 ${benefit.accent}`}>
                       {benefit.title}
                     </h3>
-                    <p className="text-xs font-semibold text-brand-text/30 uppercase tracking-wider mb-2">
+                    <p className="text-[10px] font-bold text-brand-white/40 uppercase tracking-[0.2em] mb-4">
                       {benefit.subtitle}
                     </p>
                   </div>
-                  <p className="text-sm text-brand-text/50 leading-relaxed max-w-sm">
+                  <p className="text-sm font-medium text-brand-white/60 leading-relaxed max-w-sm">
                     {benefit.description}
                   </p>
                 </div>

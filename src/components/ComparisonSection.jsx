@@ -64,7 +64,7 @@ export default function ComparisonSection() {
   const isInView = useInView(containerRef, { once: true, margin: '-100px' });
 
   return (
-    <section ref={containerRef} className="relative py-32 md:py-48 bg-brand-text text-brand-white overflow-hidden">
+    <section ref={containerRef} className="relative py-32 md:py-48 text-brand-white overflow-hidden border-b border-brand-white/5">
       {/* Abstract Backgrounds */}
       <div className="absolute inset-0 opacity-[0.03] bg-[url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')] pointer-events-none" />
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-protein/10 rounded-full blur-[150px] mix-blend-screen pointer-events-none" />

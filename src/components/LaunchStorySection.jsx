@@ -51,41 +51,45 @@ export default function LaunchStorySection() {
   const lineHeight = useTransform(scrollYProgress, [0.1, 0.9], ['0%', '100%']);
 
   return (
-    <section ref={containerRef} className="relative py-24 md:py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-brand-bg to-brand-light/30" />
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-muted to-transparent" />
+    <section ref={containerRef} className="relative py-24 md:py-32 overflow-hidden border-b border-brand-white/5">
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-white/10 to-transparent" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="mb-20">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-xs font-semibold text-brand-secondary uppercase tracking-[0.2em] block mb-4"
-          >
-            Our Journey
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight"
-          >
-            The <span className="text-gradient-green">Jainacks</span>
-            <br />Story.
-          </motion.h2>
+        <div className="mb-24 relative">
+          <div className="absolute top-1/2 left-0 -translate-y-1/2 text-[8rem] md:text-[12rem] font-black text-brand-white/5 whitespace-nowrap pointer-events-none z-0">
+            TIMELINE
+          </div>
+          <div className="relative z-10">
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-xs font-black text-brand-gold uppercase tracking-[0.3em] block mb-4"
+            >
+              Our Journey
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-5xl md:text-7xl font-black tracking-tighter text-brand-white"
+            >
+              The <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-secondary to-brand-gold italic font-serif">Jainacks</span>
+              <br />Story.
+            </motion.h2>
+          </div>
         </div>
 
         {/* Timeline */}
         <div className="relative">
           {/* Vertical line - background */}
-          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[1px] bg-brand-muted/30 md:-translate-x-[0.5px]" />
+          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-[1px] bg-brand-white/10 md:-translate-x-[0.5px]" />
 
           {/* Animated progress line */}
           <motion.div
-            className="absolute left-6 md:left-1/2 top-0 w-[1px] bg-brand-secondary md:-translate-x-[0.5px]"
+            className="absolute left-6 md:left-1/2 top-0 w-[1px] bg-brand-gold md:-translate-x-[0.5px]"
             style={{ height: lineHeight }}
           />
 
@@ -110,42 +114,42 @@ export default function LaunchStorySection() {
                     <motion.div
                       whileInView={{ scale: [0, 1.2, 1] }}
                       viewport={{ once: true }}
-                      className={`w-3 h-3 rounded-full ${
+                      className={`w-4 h-4 rounded-full border-2 border-brand-dark ${
                         milestone.status === 'completed'
                           ? 'bg-brand-secondary'
                           : milestone.status === 'current'
                           ? 'bg-brand-gold'
-                          : 'bg-brand-muted'
+                          : 'bg-brand-white/20'
                       }`}
                       style={{
                         boxShadow: milestone.status === 'current'
-                          ? '0 0 16px rgba(200, 155, 60, 0.4)'
+                          ? '0 0 20px rgba(200, 155, 60, 0.6)'
                           : 'none',
                       }}
                     />
                     {milestone.status === 'current' && (
                       <motion.div
-                        animate={{ scale: [1, 2, 1], opacity: [0.5, 0, 0.5] }}
+                        animate={{ scale: [1, 2.5, 1], opacity: [0.5, 0, 0.5] }}
                         transition={{ duration: 2, repeat: Infinity }}
-                        className="absolute inset-0 rounded-full bg-brand-gold"
+                        className="absolute inset-0 rounded-full bg-brand-gold -z-10"
                       />
                     )}
                   </div>
 
                   {/* Content */}
-                  <div className={`ml-16 md:ml-0 md:w-1/2 ${isLeft ? 'md:pr-16 md:text-right' : 'md:pl-16'}`}>
-                    <span className={`text-xs font-bold uppercase tracking-widest block mb-2 ${
-                      milestone.status === 'current' ? 'text-brand-gold' : 'text-brand-text/30'
+                  <div className={`ml-16 md:ml-0 md:w-1/2 ${isLeft ? 'md:pr-20 md:text-right' : 'md:pl-20'}`}>
+                    <span className={`text-xs font-black uppercase tracking-widest block mb-3 ${
+                      milestone.status === 'current' ? 'text-brand-gold' : 'text-brand-white/30'
                     }`}>
                       {milestone.date}
                     </span>
-                    <h3 className={`text-xl md:text-2xl font-bold mb-2 ${
-                      milestone.status === 'upcoming' ? 'text-brand-text/30' : 'text-brand-text'
+                    <h3 className={`text-2xl md:text-3xl font-black mb-3 ${
+                      milestone.status === 'upcoming' ? 'text-brand-white/30' : 'text-brand-white'
                     }`}>
                       {milestone.title}
                     </h3>
-                    <p className={`text-sm leading-relaxed ${
-                      milestone.status === 'upcoming' ? 'text-brand-text/20' : 'text-brand-text/50'
+                    <p className={`text-sm leading-relaxed font-medium ${
+                      milestone.status === 'upcoming' ? 'text-brand-white/20' : 'text-brand-white/60'
                     }`}>
                       {milestone.description}
                     </p>
@@ -153,10 +157,10 @@ export default function LaunchStorySection() {
                       <motion.span
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        className="inline-flex items-center gap-1.5 mt-3 px-3 py-1 rounded-full bg-brand-gold/10 text-brand-gold text-[10px] font-bold uppercase tracking-wider"
+                        className="inline-flex items-center gap-2 mt-4 px-4 py-1.5 rounded-full bg-brand-gold/10 text-brand-gold text-[10px] font-black uppercase tracking-widest border border-brand-gold/20"
                       >
                         <span className="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse" />
-                        Current
+                        Current Focus
                       </motion.span>
                     )}
                   </div>
